@@ -8,7 +8,7 @@ class LowercaseTagger(object):
     """
 
     def __init__(self, language=None):
-        self.language = language or languages.ENG
+        self.language = language or languages.RUS
 
     def get_text_index_string(self, text):
         return text.lower()
@@ -19,11 +19,11 @@ class PosLemmaTagger(object):
     def __init__(self, language=None):
         import spacy
 
-        self.language = language or languages.ENG
+        self.language = language or languages.RUS
 
         self.punctuation_table = str.maketrans(dict.fromkeys(string.punctuation))
 
-        self.nlp = spacy.load(self.language.ISO_639_1.lower())
+        self.nlp = spacy.load("ru_core_news_sm")
 
     def get_text_index_string(self, text):
         """
